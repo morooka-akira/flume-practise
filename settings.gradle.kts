@@ -1,3 +1,3 @@
 
-rootProject.name = "Flume-Practise2"
+rootProject.name = "flume-practise"
 
