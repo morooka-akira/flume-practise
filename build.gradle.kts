@@ -5,7 +5,7 @@ plugins {
     application
 }
 
-group = "app.inon29"
+group = "com.inon29"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -40,5 +40,5 @@ tasks.test {
 }
 
 application {
-    mainClass.set("MainKt")
+    mainClass.set("com.inon29.MainKt")
 }
