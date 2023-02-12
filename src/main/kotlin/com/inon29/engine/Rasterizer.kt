@@ -1,15 +1,15 @@
 package com.inon29.engine
 
+import com.inon29.common.layertree.LayerTree
+import com.inon29.common.layertree.PaintContext
 import org.jetbrains.skia.BackendRenderTarget
 import org.jetbrains.skia.ColorSpace
 import org.jetbrains.skia.DirectContext
 import org.jetbrains.skia.FramebufferFormat
-import org.jetbrains.skia.Paint
 import org.jetbrains.skia.Surface
 import org.jetbrains.skia.SurfaceColorFormat
 import org.jetbrains.skia.SurfaceOrigin
 import org.lwjgl.opengl.GL11
-import kotlin.random.Random
 
 class Rasterizer(
     private val width: Int,
@@ -38,15 +38,13 @@ class Rasterizer(
         )!!
     }
 
-    fun drawToSurface() {
+    fun drawToSurface(layerTree: LayerTree) {
         println("draw")
-        val paint = Paint().apply { color = 0xFFFF0000.toInt() }
-
-        val randomX = Random.nextFloat() * width
-        val randomY = Random.nextFloat() * height
+        layerTree.preroll()
 
         surface.canvas.clear(0xFFFFFFFF.toInt())
-        surface.canvas.drawCircle(randomX, randomY, 40f, paint)
+
+        layerTree.paint(PaintContext(surface.canvas, context))
 
         context.flush()
     }
