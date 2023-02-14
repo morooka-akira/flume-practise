@@ -2,6 +2,7 @@ package com.inon29
 
 import com.inon29.common.layertree.ContainerLayer
 import com.inon29.common.layertree.LayerTree
+import com.inon29.common.layertree.OpacityLayer
 import com.inon29.common.layertree.PictureLayer
 import com.inon29.engine.GLView
 import com.inon29.engine.Rasterizer
@@ -78,6 +79,17 @@ fun createRandomTree(width: Float, height: Float): LayerTree {
 
     leaf.picture = recorder.finishRecordingAsPicture()
     root.children.add(leaf)
+
+    val opacity = OpacityLayer(alpha = 150)
+
+    val opacityPicture = PictureLayer()
+    val opacityRecorder = PictureRecorder()
+    val opacityCanvas = opacityRecorder.beginRecording(rect)
+    opacityCanvas.drawCircle(0f, 0f, 50f, paint)
+    opacityPicture.picture = opacityRecorder.finishRecordingAsPicture()
+    opacity.children.add(opacityPicture)
+
+    root.children.add(opacity)
 
     return LayerTree().apply {
         rootLayer = root
