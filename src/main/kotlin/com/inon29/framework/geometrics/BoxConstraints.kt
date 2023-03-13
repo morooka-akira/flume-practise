@@ -37,6 +37,8 @@ class BoxConstraints(
         maxHeight = maxHeight
     )
 
+    val smallest: Size = Size(constrainWidth(0.0), constrainHeight(0.0))
+
     companion object {
         fun tight(size: Size): BoxConstraints {
             return BoxConstraints(
