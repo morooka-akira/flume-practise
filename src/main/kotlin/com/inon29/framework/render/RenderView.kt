@@ -19,6 +19,10 @@ class RenderView(
         throw NotImplementedError()
     }
 
+    fun performLayout() {
+        child?.layout(BoxConstraints.tight(size))
+    }
+
     override fun paint(context: PaintingContext, offset: Offset) {
         if (child != null) {
             child!!.paint(context, offset)

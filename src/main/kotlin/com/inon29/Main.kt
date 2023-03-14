@@ -1,14 +1,19 @@
 package com.inon29
 
+import com.inon29.common.Size
 import com.inon29.common.layertree.ContainerLayer
 import com.inon29.common.layertree.LayerTree
 import com.inon29.common.layertree.OpacityLayer
 import com.inon29.common.layertree.PictureLayer
 import com.inon29.engine.GLView
-import com.inon29.engine.Rasterizer
 import com.inon29.engine.Shell
 import com.inon29.engine.TaskRunner
 import com.inon29.engine.TaskRunners
+import com.inon29.framework.RenderPipeline
+import com.inon29.framework.geometrics.BoxConstraints
+import com.inon29.framework.render.RenderColoredBox
+import com.inon29.framework.render.RenderConstrainedBox
+import com.inon29.framework.render.RenderView
 import org.jetbrains.skia.Paint
 import org.jetbrains.skia.PictureRecorder
 import org.jetbrains.skia.Rect
@@ -27,18 +32,22 @@ fun main(args: Array<String>) {
 
     val glView = GLView(width, height)
 
+    val renderPipeline = RenderPipeline().apply {
+        renderView = RenderView(width.toDouble(), height.toDouble())
+    }
+
     val shell = Shell(
         taskRunners = taskRunners,
         glView = glView,
-        rasterizer = null
+        rasterizer = null,
+        renderPipeline,
+        width,
+        height
     )
 
-    taskRunners.rasterTaskRunner.postTask {
-        println("in rasterThread")
-        val context = shell.glView.createContext()
-        val rasterizer = Rasterizer(width, height, context)
-        shell.rasterizer = rasterizer
-    }
+    shell.initRasterThread()
+
+    shell.drawFrame()
 
     var keyPressed = false
 
@@ -51,12 +60,11 @@ fun main(args: Array<String>) {
     while (!shell.glView.windowShouldClose()) {
         if (keyPressed) {
             keyPressed = false
-            shell.taskRunners.rasterTaskRunner.postTask {
-                shell.rasterizer!!.drawToSurface(
-                    createRandomTree(width.toFloat(), height.toFloat())
-                )
-                shell.glView.swapBuffers()
-            }
+            renderPipeline.renderView!!.child = RenderConstrainedBox(
+                additionalConstraints = BoxConstraints.tight(Size(100.0, 100.0)),
+                child = RenderColoredBox(0xFFFF0000.toInt())
+            )
+            shell.drawFrame()
         }
         shell.glView.pollEvents()
     }

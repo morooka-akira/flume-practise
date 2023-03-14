@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcff51bc-7f70-4ec5-b3ed-d68bf63d9801" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderColoredBox.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderConstrainedBox.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderProxyBox.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/RenderPipeline.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/BoxConstraints.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/BoxConstraints.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/inon29/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/inon29/engine/Shell.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/engine/Shell.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderView.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
