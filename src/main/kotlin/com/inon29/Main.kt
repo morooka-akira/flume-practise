@@ -13,6 +13,7 @@ import com.inon29.framework.RenderPipeline
 import com.inon29.framework.geometrics.BoxConstraints
 import com.inon29.framework.render.RenderColoredBox
 import com.inon29.framework.render.RenderConstrainedBox
+import com.inon29.framework.render.RenderPositionedBox
 import com.inon29.framework.render.RenderView
 import org.jetbrains.skia.Paint
 import org.jetbrains.skia.PictureRecorder
@@ -60,9 +61,11 @@ fun main(args: Array<String>) {
     while (!shell.glView.windowShouldClose()) {
         if (keyPressed) {
             keyPressed = false
-            renderPipeline.renderView!!.child = RenderConstrainedBox(
-                additionalConstraints = BoxConstraints.tight(Size(100.0, 100.0)),
-                child = RenderColoredBox(0xFFFF0000.toInt())
+            renderPipeline.renderView!!.child = RenderPositionedBox(
+                child = RenderConstrainedBox(
+                    additionalConstraints = BoxConstraints.tight(Size(100.0, 100.0)),
+                    child = RenderColoredBox(0xFFFF0000.toInt())
+                )
             )
             shell.drawFrame()
         }
