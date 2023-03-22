@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dcff51bc-7f70-4ec5-b3ed-d68bf63d9801" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/Alignment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/render/RenderPositionedBox.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/Axis.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/CrossAxisAlignment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/MainAxisAlignment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/MainAxisSize.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/framework/geometrics/VerticalDirection.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/inon29/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/inon29/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +79,9 @@
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.inon29.common.layertree" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="com.inon29.framework.geometrics" />
     </key>
   </component>
   <component name="RunManager">
